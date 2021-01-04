@@ -1,6 +1,6 @@
 /*
     @license
-    (c) 2016-2020 musictheory.net, LLC.
+    (c) 2016-2021 musictheory.net, LLC.
     MIT License, https://opensource.org/licenses/MIT
 */
 
