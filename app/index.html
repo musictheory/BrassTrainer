@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Brass Trainer</title>
+
+<script src="lodash.min.js"></script> 
+<script src="eiko.js"></script> 
+<script src="source.js" type="module"></script> 
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div id="AppArea" class="hidden">
+
+<div id="QuestionArea">
+    <div id="StaffArea">
+        <object class="hidden" data="staff.svg" type="image/svg+xml" id="StaffObject"></object>
+    </div>
+</div>
+
+<div id="SidebarArea">
+    <div id="LogoArea">
+        <img src="logo.svg">
+
+        <div class="LogoArea-title">Brass Trainer</div>
+        <div class="LogoArea-legal">&copy; 2002, 2020 musictheory.net, LLC</div>
+    </div>
+    <div id="ScoreArea"></div>
+    <div id="ControlsArea"></div>
+</div>
+
+</div>
+
+
+<div id="SettingsArea">
+<div id="SettingsArea-shroud">
+<div id="SettingsArea-content">
+    <h1>Settings</h1>
+
+    <div class="SettingsArea-grid">
+        <div>Instrument</div>
+        <div class="SettingsArea-right">
+            <div class="SettingsArea-input-wrapper">
+                <select id="SettingsInstrument"></select>
+            </div>
+        </div>
+
+        <div>Range</div>
+        <div class="SettingsArea-right">
+            <div class="SettingsArea-input-wrapper">
+                <select id="SettingsRangePreset"></select>
+            </div>
+            <div class="SettingsArea-range">
+                <div class="SettingsArea-input-wrapper">
+                    <input type="range" id="SettingsLowRangeInput" >
+                </div>
+                <span id="SettingsLowRangeLabel" ></span>
+            </div>
+            <div class="SettingsArea-range">
+                <div class="SettingsArea-input-wrapper">
+                    <input type="range" id="SettingsHighRangeInput">
+                </div>
+                <span id="SettingsHighRangeLabel"></span>
+            </div>
+        </div>
+
+        <div>Accidentals</div>
+        <div class="SettingsArea-right">
+            <label><input type="checkbox" value="1" id="SettingsAllowSharps"> Allow Sharps</label>
+            <label><input type="checkbox" value="1" id="SettingsAllowBsEs"> Allow B# and E#</label>
+            <label><input type="checkbox" value="1" id="SettingsAllowFlats"> Allow Flats</label>
+            <label><input type="checkbox" value="1" id="SettingsAllowCbFb"> Allow Cb and Fb</label>
+        </div>
+
+
+        <div>Other</div>
+        <div class="SettingsArea-right">
+            <label><input type="checkbox" value="0" id="SettingsRemember"> Remember Settings</label>
+        </div>
+    </div>
+
+    <p>
+    <button id="SettingsArea-hide">Hide Settings</button>
+</div>
+</div>
+</div>
+
+
+
+<div id="HelpArea">
+<div id="HelpArea-shroud">
+<div id="HelpArea-content">
+    <h1>Help</h1>
+
+    <p>
+    Press keyboard keys to light up the correct valves for the displayed note.
+
+    <p>
+    Due to <a href="https://en.wikipedia.org/wiki/Rollover_(key)">rollover</a>, 
+    key combinations which work on one keyboard may not work on another. To work
+    around this, several sets are available.
+
+    <table>
+        <tr>
+            <th>Valve 1
+            <th>Valve 2
+            <th>Valve 3
+            <th>Valve 4
+        <tr>
+            <td><span class="KeyCap">1</span>
+            <td><span class="KeyCap">2</span>
+            <td><span class="KeyCap">3</span>
+            <td><span class="KeyCap">4</span>
+        <tr>
+            <td><span class="KeyCap">Q</span>
+            <td><span class="KeyCap">W</span>
+            <td><span class="KeyCap">E</span>
+            <td><span class="KeyCap">R</span>
+        <tr>
+            <td><span class="KeyCap">A</span>
+            <td><span class="KeyCap">S</span>
+            <td><span class="KeyCap">D</span>
+            <td><span class="KeyCap">F</span>
+        <tr>
+            <td><span class="KeyCap">Z</span>
+            <td><span class="KeyCap">X</span>
+            <td><span class="KeyCap">C</span>
+            <td><span class="KeyCap">V</span>
+        <tr>
+            <td><span class="KeyCap KeyCap-sans">Left Arrow</span>
+            <td><span class="KeyCap KeyCap-sans">Down Arrow</span>
+            <td><span class="KeyCap KeyCap-sans">Right Arrow</span>
+            <td><span class="KeyCap KeyCap-sans">Numpad <span class="KeyCap-mono">0</span></span>
+    </table>
+
+    <p>
+    To submit an answer, use
+    <span class="KeyCap KeyCap-sans">Space</span>,
+    <span class="KeyCap KeyCap-sans">Enter</span>,
+    <span class="KeyCap KeyCap-sans">Return</span>,
+    or
+    <span class="KeyCap">.</span>
+
+    <p>
+    For French Horn, keys are reversed (Valve 3 activates Valve 1).
+
+    <p>
+    For Trombone, press <span class="KeyCap">1</span> - <span class="KeyCap">7</span>
+    to submit a slide position.
+
+    <p>
+    <button id="HelpArea-hide">Hide Help</button>
+</div>
+</div>
+</div>
+
+</body>
+</html>

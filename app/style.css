@@ -1,0 +1,454 @@
+
+body {
+    font-family: -apple-system, sans-serif;
+    font-size: 13px;
+
+    margin: 0;
+    padding: 0;
+
+    background-color: #f0f0f0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: calc(min(2vw, calc(2vh * 1.25)))
+}
+
+body * {
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+
+@media not print {
+    body {
+        height: 100vh;
+    }
+}
+
+
+button {
+    height: 48px;
+
+    border: 0;
+    background: linear-gradient(#fff, #e8e8e8);
+    font-size: 16px;
+    border-radius: 8px;
+
+    color: #404040;
+}
+
+button:active {
+    background: linear-gradient(#e0e0e0, #d0d0d0);
+    color: #000;
+}
+
+#AppArea {
+    background-color: white; 
+    position: relative; 
+
+    --app-width:  max(calc(min(100vw, calc(100vh * 1.25)) - 32px), 640px);
+    --app-height: calc(var(--app-width) * 3 / 4);
+
+    width:  var(--app-width);
+    height: var(--app-height);
+    border: 2px solid black;
+    display: flex;
+    flex-direction: row;
+
+    transform: translate3d(0,0,0);
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+
+#QuestionArea {
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: justify;
+    position: relative;
+
+}
+
+.AnswerBar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    z-index: 1;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    padding-bottom: 8px;
+
+    background-color: rgba(255, 255, 255, 0.65);
+}
+
+.AnswerBar-stripe {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+
+.AnswerBar-stripe-left {
+    flex: 1;
+    padding-right: 8px;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.AnswerBar-stripe-right {
+    flex: 1;
+}
+
+.AnswerBar-stripe-middle-flex {
+    display: flex;
+    flex-direction: column;
+}
+
+.AnswerBar-slide-text {
+    opacity: 0.6;
+    text-align: center;
+    height: 48px;
+}
+
+
+.AnswerBar-big-number {
+    font-size: 1.25em;
+}
+
+#StaffArea {
+    flex: 1 1;
+}
+
+#StaffObject {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background: white;
+}
+
+#SidebarArea {
+    width: 240px;
+    height: 100%;
+    border-left: 2px solid black;
+    background-color: #005fbf;
+    color: white;
+
+    display: flex;
+    flex-direction: column;
+}
+
+#LogoArea {
+    position: relative;
+    width: 240px;
+    height: 200px;
+}
+
+#LogoArea img {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}
+
+.LogoArea-title {
+    font-size: 32px;
+    font-weight: bold;
+    position: absolute;
+    z-index: 1;
+
+    text-shadow: 0px 2px 8px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+}
+
+.LogoArea-legal {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    line-height: 18px;
+    font-size: 12px;
+}
+
+#ScoreArea {
+    background-color: #134980;
+    display: flex;
+    flex-direction: row;
+
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+}
+
+.ScoreBox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex: 1;
+    font-size: 24px;
+    padding-top: 8px;
+    padding-bottom: 4px;
+}
+
+.ScoreBox + .ScoreBox {
+    border-left: 2px solid black;
+}
+
+.ScoreBox-score {
+    flex: 1;
+    padding-bottom: 4px;
+}
+
+.ScoreBox-label {
+    font-size: 16px;
+}
+
+
+#ControlsArea {
+    background-color: #134980;
+    flex: 1;
+    padding: 8px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+#ControlsArea button {
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.25);
+    margin-top: 8px;
+    margin-bottom: 4px;
+}
+
+#SettingsArea, #HelpArea {
+    display: none;
+    position: fixed;
+    z-index: 1;
+
+    font-size: 16px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+
+#SettingsArea-shroud, #HelpArea-shroud {
+    background-color: rgba(0, 0, 0, 0.35);
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.SettingsArea-grid {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    grid-gap: 16px;
+    grid-auto-flow: dense;
+}
+
+.SettingsArea-grid > div {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.5em;
+}
+
+.SettingsArea-input-wrapper {
+    height: 1.5em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.SettingsArea-range {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.SettingsArea-range input {
+    width: 160px;
+}
+
+.SettingsArea-range span {
+    margin-left: 1em;
+    line-height: 1.5em;
+}
+
+
+#SettingsArea button, #HelpArea button {
+    border: 1px solid #ccc;
+    width: 100%;
+}
+
+
+h1 {
+    margin-top: 0;
+    font-size: 24px;
+    border-bottom: 1px solid #e0e0e0;
+
+}
+
+#SettingsArea-content {
+    width: 320px;
+}
+
+#HelpArea-content {
+    width: 500px;
+}
+
+#SettingsArea-content, #HelpArea-content {
+    padding: 24px;
+    background-color: white;
+    border-radius: 16px;
+}
+
+#SettingsArea-content p:last-child,
+#HelpArea-content     p:last-child {
+    margin-bottom: 0;
+}
+
+.KeyCap {
+    display: inline-block;
+    border: 1px solid #808080;
+    border-radius: 4px;
+    padding: 4px;
+    min-width: 1.25em;
+    min-height: 1.25em;
+    line-height: 1.25em;
+    text-align: center;
+}
+
+.KeyCap, .KeyCap-mono 
+{
+    font-family: "Monaco", "Consolas", monospace;
+}
+
+.KeyCap-sans {
+    font-family: sans-serif;
+}
+
+
+#HelpArea a {
+    color: #0070ff;
+    text-decoration: none;
+}
+
+#HelpArea a:hover {
+    text-decoration: underline;
+}
+
+#HelpArea a:active {
+    color: #005acc;
+}
+
+
+
+#HelpArea th {
+    text-align: left;
+}
+
+
+.ValveDiagram {
+    display: inline-flex;
+    justify-content: center;
+}
+
+.ValveDiagram-valve + .ValveDiagram-valve {
+    margin-left: 4px;
+}
+
+.ValveDiagram + .ValveDiagram {
+    margin-top: 4px;
+}
+
+.ValveDiagram-valve {
+    width: 48px;
+    height: 48px;
+    border: 2px solid black;
+
+    border-radius: 100%;
+
+    font-size: 24px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+}
+
+.ValveDiagram-valve.active       { background-color: yellow;  }
+.ValveDiagram-valve.active.red   { background-color: #ff6060; }
+.ValveDiagram-valve.active.green { background-color: #80ff80; }
+
+
+/*
+    Quickly-made overrides to support basic printing
+*/
+@media print {
+    #AppArea {
+        margin-top: 1in;
+    }
+
+    #AppArea, #LogoArea, #ScoreArea, #SidebarArea {
+        width: 4in;
+    }
+
+    #AppArea, #LogoArea {
+        height: 3in;
+        background-color: white;
+    }
+
+    #SidebarArea {
+        border: none;
+    }
+
+    #LogoArea img {
+        opacity: 0.5;
+    }
+
+    .LogoArea-title {
+        font-size: 48px;
+        color: black;
+        text-shadow: 
+            2px 0px  4px white,
+            -2px 0px 4px white;
+    }
+    
+    #ScoreArea {
+        height: 1in;
+        border-bottom: none;
+        color: black;
+        background-color: white;
+    }
+
+    #QuestionArea, #ControlsArea, #SettingsArea, #HelpArea, .LogoArea-legal {
+        display: none !important;
+    }
+}
