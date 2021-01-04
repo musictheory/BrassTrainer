@@ -12,4 +12,4 @@ This project uses [Lodash](https://lodash.com) and is built with [Webpack](https
 ---
 ## License
 
-All files in this project other than `lodash.min.js` are licensed under the [MIT license](http://github.com/musictheory/BrassTrainer/raw/master/LICENSE.MIT).
+All files in this project other than `lodash.min.js` are licensed under the [MIT license](http://github.com/musictheory/BrassTrainer/raw/main/LICENSE.MIT).
